@@ -1,0 +1,1280 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>幸福草 - 品牌剧集,温暖现实题材影像平台</title>
+<meta name="description" content="幸福草官方网站，专注温暖现实题材剧集与影像内容的品牌平台，汇聚原创精品剧集、创作者社区与企业动态，打造值得信赖的内容生态。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232f6f4e'/%3E%3Cpath d='M32 50V26M32 34c-8 0-12-5-12-11 7 0 12 4 12 11zm0-6c8 0 12-5 12-11-7 0-12 4-12 11z' stroke='%23f3e6c4' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --xf-grass-deep:#1f4d38;
+  --xf-grass:#2f6f4e;
+  --xf-grass-soft:#5c9678;
+  --xf-earth:#8a6a45;
+  --xf-cream:#f6f2e7;
+  --xf-sand:#eee6d4;
+  --xf-ink:#22312a;
+  --xf-mute:#61736a;
+  --xf-gold:#c99a4b;
+  --xf-card:#ffffff;
+  --xf-radius:18px;
+  --xf-shadow:0 10px 30px rgba(31,77,56,.10);
+  --xf-shadow-hover:0 18px 44px rgba(31,77,56,.18);
+  --xf-max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  background:var(--xf-cream);
+  color:var(--xf-ink);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+ul{list-style:none}
+.xf-container{max-width:var(--xf-max);margin:0 auto;padding:0 24px}
+.xf-anchor{scroll-margin-top:118px}
+
+/* 顶部吸顶容器：公告条 + 页头 */
+.xf-sticky-top{position:sticky;top:0;z-index:100;box-shadow:0 4px 18px rgba(31,77,56,.08)}
+
+/* 公告条 */
+.xf-notice-bar{
+  background:linear-gradient(90deg,var(--xf-grass-deep),var(--xf-grass));
+  color:#eaf4ee;font-size:13.5px;letter-spacing:.2px;
+}
+.xf-notice-inner{max-width:var(--xf-max);margin:0 auto;padding:9px 24px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.xf-notice-tag{
+  background:var(--xf-gold);color:#2a1c07;font-weight:700;
+  padding:2px 10px;border-radius:999px;font-size:12px;flex:none;
+}
+.xf-notice-list{display:flex;gap:22px;flex-wrap:wrap}
+.xf-notice-list li{opacity:.92;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.xf-notice-list li strong{color:#ffe9b8;font-weight:600}
+
+/* 页头 */
+.xf-header{background:rgba(246,242,231,.96);backdrop-filter:blur(10px);border-bottom:1px solid rgba(47,111,78,.14)}
+.xf-header-inner{max-width:var(--xf-max);margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:22px;height:70px}
+.xf-brand{display:flex;align-items:center;gap:11px;flex:none}
+.xf-brand-mark{
+  width:40px;height:40px;border-radius:12px;
+  background:linear-gradient(140deg,var(--xf-grass),var(--xf-grass-deep));
+  display:grid;place-items:center;color:#f3e6c4;font-weight:800;font-size:19px;
+  box-shadow:0 4px 12px rgba(47,111,78,.3);
+}
+.xf-brand-name{font-size:19px;font-weight:800;letter-spacing:1px;color:var(--xf-grass-deep)}
+.xf-brand-name small{display:block;font-size:10.5px;font-weight:500;letter-spacing:2px;color:var(--xf-mute)}
+.xf-nav{display:flex;gap:4px;margin-left:auto}
+.xf-nav a{
+  padding:8px 13px;border-radius:10px;font-size:14.5px;color:#3a4d43;font-weight:500;
+  transition:.2s;white-space:nowrap;
+}
+.xf-nav a:hover{background:rgba(47,111,78,.10);color:var(--xf-grass-deep)}
+.xf-header-tools{display:flex;align-items:center;gap:10px;flex:none}
+.xf-search{position:relative;display:flex;align-items:center}
+.xf-search input{
+  width:180px;padding:8px 34px 8px 14px;border-radius:999px;
+  border:1px solid rgba(47,111,78,.25);background:#fff;font-size:13.5px;color:var(--xf-ink);
+  outline:none;transition:.25s;
+}
+.xf-search input:focus{border-color:var(--xf-grass);box-shadow:0 0 0 3px rgba(47,111,78,.12);width:210px}
+.xf-search button{
+  position:absolute;right:4px;top:50%;transform:translateY(-50%);
+  width:28px;height:28px;border-radius:50%;display:grid;place-items:center;color:var(--xf-grass);
+}
+.xf-search button:hover{background:rgba(47,111,78,.1)}
+.xf-search-tip{
+  position:absolute;top:44px;left:0;right:0;background:#fff;border-radius:12px;
+  box-shadow:var(--xf-shadow);padding:8px;font-size:13px;color:var(--xf-mute);
+  display:none;z-index:60;
+}
+.xf-search-tip.xf-show{display:block}
+.xf-search-tip span{display:block;padding:5px 8px;border-radius:8px;cursor:pointer}
+.xf-search-tip span:hover{background:var(--xf-sand);color:var(--xf-ink)}
+.xf-burger{display:none;width:40px;height:40px;border-radius:10px;place-items:center;color:var(--xf-grass-deep)}
+.xf-burger:hover{background:rgba(47,111,78,.1)}
+
+/* 按钮 */
+.xf-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 24px;border-radius:999px;font-size:14.5px;font-weight:600;
+  transition:.25s;border:1.5px solid transparent;
+}
+.xf-btn-primary{background:var(--xf-grass);color:#fff;box-shadow:0 8px 20px rgba(47,111,78,.28)}
+.xf-btn-primary:hover{background:var(--xf-grass-deep);transform:translateY(-2px)}
+.xf-btn-ghost{border-color:rgba(47,111,78,.4);color:var(--xf-grass-deep)}
+.xf-btn-ghost:hover{background:rgba(47,111,78,.08);transform:translateY(-2px)}
+.xf-btn-soft{background:rgba(47,111,78,.1);color:var(--xf-grass-deep)}
+.xf-btn-soft:hover{background:rgba(47,111,78,.18)}
+
+/* Hero */
+.xf-hero{position:relative;overflow:hidden;padding:64px 0 76px;background:
+  radial-gradient(900px 420px at 88% -6%,rgba(201,154,75,.20),transparent 62%),
+  radial-gradient(700px 380px at 4% 100%,rgba(92,150,120,.18),transparent 60%),
+  var(--xf-cream);}
+.xf-hero-grid{display:grid;grid-template-columns:6fr 4fr;gap:48px;align-items:center}
+.xf-hero-eyebrow{
+  display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:700;
+  color:var(--xf-grass-deep);background:rgba(47,111,78,.10);
+  padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.5px;
+}
+.xf-hero-eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--xf-gold)}
+.xf-hero h1{
+  font-size:56px;line-height:1.12;font-weight:900;letter-spacing:2px;
+  color:var(--xf-grass-deep);margin-bottom:20px;
+}
+.xf-hero h1 em{font-style:normal;color:var(--xf-earth);position:relative}
+.xf-hero h1 em::after{
+  content:"";position:absolute;left:0;bottom:6px;width:100%;height:10px;
+  background:rgba(201,154,75,.35);border-radius:6px;z-index:-1;
+}
+.xf-hero-lead{font-size:17px;color:#41564b;max-width:560px;margin-bottom:16px;font-weight:500}
+.xf-hero-desc{font-size:14.5px;color:var(--xf-mute);max-width:580px;margin-bottom:28px}
+.xf-hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:38px}
+.xf-hero-stats{display:flex;gap:38px;flex-wrap:wrap}
+.xf-stat b{display:block;font-size:30px;font-weight:900;color:var(--xf-grass-deep);line-height:1.2}
+.xf-stat span{font-size:12.5px;color:var(--xf-mute);letter-spacing:.5px}
+
+.xf-hero-visual{position:relative}
+.xf-hero-cover{
+  position:relative;border-radius:26px;overflow:hidden;box-shadow:0 26px 60px rgba(31,77,56,.26);
+  aspect-ratio:4/5;background:#234d3a;
+}
+.xf-hero-cover img{width:100%;height:100%;object-fit:cover}
+.xf-hero-cover-tag{
+  position:absolute;top:16px;left:16px;background:rgba(20,45,33,.72);color:#f0e8d2;
+  font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;backdrop-filter:blur(4px);
+}
+.xf-play-badge{
+  position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;
+}
+.xf-play-badge span{
+  width:66px;height:66px;border-radius:50%;background:rgba(255,255,255,.9);
+  display:grid;place-items:center;box-shadow:0 8px 26px rgba(0,0,0,.28);
+}
+.xf-play-badge span::after{
+  content:"";width:0;height:0;border-left:20px solid var(--xf-grass-deep);
+  border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:5px;
+}
+.xf-float-card{
+  position:absolute;bottom:-26px;left:-26px;background:#fff;border-radius:16px;
+  padding:14px 18px;box-shadow:var(--xf-shadow);display:flex;align-items:center;gap:12px;
+  max-width:260px;
+}
+.xf-float-card .xf-fc-dot{width:38px;height:38px;border-radius:12px;background:rgba(201,154,75,.2);display:grid;place-items:center;color:var(--xf-earth);font-weight:800}
+.xf-float-card b{display:block;font-size:14px;color:var(--xf-grass-deep)}
+.xf-float-card small{font-size:12px;color:var(--xf-mute)}
+
+/* 通用 section */
+.xf-section{padding:76px 0}
+.xf-section-alt{background:var(--xf-sand)}
+.xf-section-head{max-width:720px;margin-bottom:44px}
+.xf-section-label{
+  display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:2.5px;
+  color:var(--xf-grass);text-transform:uppercase;margin-bottom:12px;
+}
+.xf-section-head h2{font-size:34px;font-weight:900;color:var(--xf-grass-deep);line-height:1.3;margin-bottom:12px;letter-spacing:1px}
+.xf-section-head p{color:var(--xf-mute);font-size:15.5px}
+.xf-section-head-center{max-width:720px;margin:0 auto 44px;text-align:center}
+
+/* 焦点内容 */
+.xf-focus-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:22px}
+.xf-video-card{
+  background:var(--xf-card);border-radius:var(--xf-radius);overflow:hidden;
+  box-shadow:var(--xf-shadow);transition:.3s;display:flex;flex-direction:column;
+}
+.xf-video-card:hover{transform:translateY(-6px);box-shadow:var(--xf-shadow-hover)}
+.xf-video-thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:#dbe7df}
+.xf-video-thumb img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.xf-video-card:hover .xf-video-thumb img{transform:scale(1.06)}
+.xf-video-thumb::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(18,42,30,.55),transparent 58%);
+}
+.xf-thumb-tag{
+  position:absolute;top:12px;left:12px;z-index:2;background:rgba(255,255,255,.92);color:var(--xf-grass-deep);
+  font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px;
+}
+.xf-thumb-dur{
+  position:absolute;bottom:10px;right:12px;z-index:2;color:#fff;font-size:12px;
+  background:rgba(0,0,0,.5);padding:2px 8px;border-radius:6px;
+}
+.xf-video-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.xf-video-body h3{font-size:16.5px;font-weight:700;line-height:1.45;color:var(--xf-ink)}
+.xf-video-body p{font-size:13.5px;color:var(--xf-mute);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.xf-video-meta{display:flex;align-items:center;gap:10px;margin-top:auto;padding-top:8px;font-size:12.5px;color:var(--xf-mute);flex-wrap:wrap}
+.xf-video-meta .xf-avatar-sm{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:800;color:#fff}
+.xf-video-card-lg .xf-video-body h3{font-size:20px}
+.xf-video-card-lg .xf-video-body p{font-size:14px;-webkit-line-clamp:3}
+.xf-card-actions{display:flex;gap:8px;margin-top:10px}
+.xf-icon-btn{
+  display:inline-flex;align-items:center;gap:5px;font-size:12.5px;color:var(--xf-mute);
+  padding:5px 10px;border-radius:999px;background:rgba(47,111,78,.07);transition:.2s;
+}
+.xf-icon-btn:hover{background:rgba(47,111,78,.15);color:var(--xf-grass-deep)}
+.xf-icon-btn.xf-liked{color:#b5432f;background:rgba(181,67,47,.1)}
+.xf-icon-btn.xf-saved{color:var(--xf-gold);background:rgba(201,154,75,.14)}
+
+/* 专题 */
+.xf-topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.xf-topic-card{
+  position:relative;border-radius:var(--xf-radius);overflow:hidden;min-height:250px;
+  display:flex;flex-direction:column;justify-content:flex-end;padding:22px;color:#fff;
+  box-shadow:var(--xf-shadow);transition:.3s;
+}
+.xf-topic-card:hover{transform:translateY(-6px);box-shadow:var(--xf-shadow-hover)}
+.xf-topic-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.xf-topic-card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,36,26,.86),rgba(15,36,26,.18));z-index:1}
+.xf-topic-card>*{position:relative;z-index:2}
+.xf-topic-state{font-size:11.5px;background:rgba(201,154,75,.9);color:#2a1c07;font-weight:700;padding:3px 10px;border-radius:999px;align-self:flex-start;margin-bottom:auto}
+.xf-topic-card h3{font-size:20px;font-weight:800;margin-top:14px;margin-bottom:6px}
+.xf-topic-card p{font-size:13px;opacity:.86;line-height:1.6}
+
+/* 创作者 */
+.xf-creator-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.xf-creator-card{
+  background:#fff;border-radius:var(--xf-radius);padding:24px 20px;text-align:center;
+  box-shadow:var(--xf-shadow);transition:.3s;border:1px solid rgba(47,111,78,.08);
+}
+.xf-creator-card:hover{transform:translateY(-6px);box-shadow:var(--xf-shadow-hover);border-color:rgba(47,111,78,.25)}
+.xf-creator-avatar{
+  width:64px;height:64px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;
+  font-size:24px;font-weight:800;color:#fff;
+}
+.xf-creator-card h3{font-size:16.5px;font-weight:700;margin-bottom:4px}
+.xf-creator-field{font-size:12.5px;color:var(--xf-grass);font-weight:600;margin-bottom:10px}
+.xf-creator-card p{font-size:13px;color:var(--xf-mute);line-height:1.6;margin-bottom:14px;min-height:60px}
+.xf-creator-nums{display:flex;justify-content:center;gap:18px;font-size:12.5px;color:var(--xf-mute);border-top:1px dashed rgba(47,111,78,.18);padding-top:12px}
+.xf-creator-nums b{color:var(--xf-grass-deep);font-size:14px}
+
+/* 影像墙 */
+.xf-wall{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.xf-wall-item{
+  position:relative;border-radius:14px;overflow:hidden;box-shadow:var(--xf-shadow);
+  transition:.3s;cursor:pointer;background:#cfdcd4;
+}
+.xf-wall-item:hover{transform:translateY(-5px);box-shadow:var(--xf-shadow-hover)}
+.xf-wall-item img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.xf-wall-item:hover img{transform:scale(1.07)}
+.xf-wall-item::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,36,26,.62),transparent 62%)}
+.xf-wall-item figcaption{
+  position:absolute;left:12px;right:12px;bottom:10px;color:#fff;font-size:12.5px;
+  font-weight:600;z-index:2;line-height:1.4;
+}
+.xf-wall-item.xf-wall-big{grid-column:span 2;grid-row:span 2;aspect-ratio:1/1}
+.xf-wall-item.xf-wall-mid{grid-row:span 1;aspect-ratio:4/3}
+.xf-wall-item.xf-wall-sm{aspect-ratio:4/3}
+
+/* 评价 */
+.xf-review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.xf-review-card{
+  background:#fff;border-radius:var(--xf-radius);padding:22px;box-shadow:var(--xf-shadow);
+  display:flex;flex-direction:column;gap:12px;border-left:4px solid var(--xf-grass-soft);
+}
+.xf-review-card:nth-child(3n+2){border-left-color:var(--xf-gold)}
+.xf-review-card:nth-child(3n){border-left-color:var(--xf-earth)}
+.xf-review-head{display:flex;align-items:center;gap:11px}
+.xf-review-avatar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:800;color:#fff;flex:none}
+.xf-review-head b{font-size:14px;display:block}
+.xf-review-head small{font-size:11.5px;color:var(--xf-mute)}
+.xf-review-card p{font-size:13.5px;color:#43564b;line-height:1.7}
+.xf-stars{color:var(--xf-gold);font-size:13px;letter-spacing:2px}
+
+/* 数据榜单 */
+.xf-rank-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.xf-rank-card{background:#fff;border-radius:var(--xf-radius);padding:24px;box-shadow:var(--xf-shadow)}
+.xf-rank-card h3{font-size:17px;font-weight:800;color:var(--xf-grass-deep);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.xf-rank-card h3 span{font-size:11px;font-weight:600;color:var(--xf-grass);background:rgba(47,111,78,.1);padding:2px 9px;border-radius:999px}
+.xf-rank-list li{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed rgba(47,111,78,.14);font-size:13.5px}
+.xf-rank-list li:last-child{border-bottom:none}
+.xf-rank-no{width:22px;height:22px;border-radius:7px;background:var(--xf-sand);color:var(--xf-earth);font-weight:800;font-size:12px;display:grid;place-items:center;flex:none}
+.xf-rank-list li:nth-child(1) .xf-rank-no{background:var(--xf-gold);color:#fff}
+.xf-rank-list li:nth-child(2) .xf-rank-no{background:var(--xf-grass-soft);color:#fff}
+.xf-rank-list li:nth-child(3) .xf-rank-no{background:var(--xf-earth);color:#fff}
+.xf-rank-name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.xf-rank-val{color:var(--xf-mute);font-size:12px;flex:none}
+
+/* 企业动态 */
+.xf-news-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.xf-news-item{
+  background:#fff;border-radius:14px;padding:20px 22px;box-shadow:var(--xf-shadow);
+  display:flex;gap:16px;transition:.3s;border:1px solid rgba(47,111,78,.07);
+}
+.xf-news-item:hover{transform:translateX(4px);border-color:rgba(47,111,78,.24)}
+.xf-news-date{
+  flex:none;width:58px;text-align:center;border-right:1px solid rgba(47,111,78,.14);padding-right:14px;
+}
+.xf-news-date b{display:block;font-size:20px;font-weight:900;color:var(--xf-grass-deep);line-height:1.2}
+.xf-news-date small{font-size:11px;color:var(--xf-mute)}
+.xf-news-item h3{font-size:15px;font-weight:700;margin-bottom:5px}
+.xf-news-item p{font-size:13px;color:var(--xf-mute);line-height:1.6}
+
+/* 品牌故事 / 深度解析 */
+.xf-story-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
+.xf-story-visual{border-radius:22px;overflow:hidden;box-shadow:var(--xf-shadow);aspect-ratio:5/4}
+.xf-story-visual img{width:100%;height:100%;object-fit:cover}
+.xf-story-text h2{font-size:32px;font-weight:900;color:var(--xf-grass-deep);line-height:1.32;margin-bottom:18px}
+.xf-story-text p{color:#42564b;font-size:15px;margin-bottom:14px}
+.xf-story-points{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+.xf-story-point{background:#fff;border-radius:12px;padding:14px 16px;box-shadow:var(--xf-shadow)}
+.xf-story-point b{display:block;font-size:14.5px;color:var(--xf-grass-deep);margin-bottom:3px}
+.xf-story-point small{font-size:12.5px;color:var(--xf-mute)}
+
+/* 深度解析长文 */
+.xf-prose{max-width:880px;margin:0 auto}
+.xf-prose h3{font-size:20px;font-weight:800;color:var(--xf-grass-deep);margin:26px 0 10px}
+.xf-prose p{font-size:15px;color:#42564b;margin-bottom:14px;text-align:justify}
+.xf-prose blockquote{
+  border-left:4px solid var(--xf-gold);background:rgba(201,154,75,.10);
+  padding:16px 20px;border-radius:0 12px 12px 0;margin:20px 0;font-size:14.5px;color:#5a4a2f;
+}
+
+/* FAQ */
+.xf-faq{max-width:860px;margin:0 auto}
+.xf-faq details{
+  background:#fff;border-radius:14px;margin-bottom:12px;box-shadow:var(--xf-shadow);
+  overflow:hidden;border:1px solid rgba(47,111,78,.08);transition:.2s;
+}
+.xf-faq details[open]{border-color:rgba(47,111,78,.3)}
+.xf-faq summary{
+  list-style:none;cursor:pointer;padding:17px 22px;font-size:15px;font-weight:600;
+  color:var(--xf-grass-deep);display:flex;justify-content:space-between;align-items:center;gap:14px;
+}
+.xf-faq summary::-webkit-details-marker{display:none}
+.xf-faq summary::after{content:"+";font-size:20px;color:var(--xf-grass-soft);font-weight:400;flex:none;transition:.25s}
+.xf-faq details[open] summary::after{transform:rotate(45deg)}
+.xf-faq details p{padding:0 22px 18px;font-size:14px;color:var(--xf-mute);line-height:1.75}
+
+/* 联系 / 投稿 */
+.xf-contact-wrap{
+  background:linear-gradient(135deg,var(--xf-grass-deep),var(--xf-grass));
+  border-radius:26px;padding:52px 48px;color:#eaf4ee;display:grid;
+  grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;
+  box-shadow:0 24px 60px rgba(31,77,56,.3);
+}
+.xf-contact-wrap h2{font-size:30px;font-weight:900;line-height:1.35;margin-bottom:12px;color:#fff}
+.xf-contact-wrap p{font-size:14.5px;opacity:.84;margin-bottom:22px}
+.xf-contact-actions{display:flex;gap:14px;flex-wrap:wrap}
+.xf-contact-actions .xf-btn-primary{background:var(--xf-gold);color:#2a1c07;box-shadow:0 8px 20px rgba(201,154,75,.4)}
+.xf-contact-actions .xf-btn-primary:hover{background:#dcaa5a}
+.xf-contact-actions .xf-btn-ghost{border-color:rgba(255,255,255,.5);color:#fff}
+.xf-contact-actions .xf-btn-ghost:hover{background:rgba(255,255,255,.12)}
+.xf-contact-info{display:grid;gap:14px}
+.xf-contact-item{display:flex;gap:12px;align-items:center;background:rgba(255,255,255,.1);padding:14px 16px;border-radius:13px;font-size:13.5px}
+.xf-contact-item b{display:block;font-size:13.5px;color:#fff}
+.xf-contact-item small{font-size:12px;opacity:.75}
+.xf-contact-item .xf-ci-icon{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.16);display:grid;place-items:center;flex:none;font-weight:800;color:var(--xf-gold)}
+
+/* 页脚 */
+.xf-footer{background:#16352a;color:#b9cec1;padding:56px 0 26px;font-size:13.5px}
+.xf-footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:36px;margin-bottom:38px}
+.xf-footer-brand .xf-brand-name{color:#e8f1eb;margin-bottom:12px}
+.xf-footer-brand p{font-size:13px;line-height:1.8;color:#93ad9e;max-width:300px}
+.xf-footer h4{color:#e8f1eb;font-size:14px;font-weight:700;margin-bottom:14px;letter-spacing:.5px}
+.xf-footer ul li{margin-bottom:9px}
+.xf-footer ul a{transition:.2s;font-size:13px}
+.xf-footer ul a:hover{color:var(--xf-gold)}
+.xf-footer-bottom{
+  border-top:1px solid rgba(255,255,255,.12);padding-top:22px;
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:#7f9988;
+}
+
+/* 回到顶部 */
+.xf-backtop{
+  position:fixed;right:26px;bottom:28px;width:48px;height:48px;border-radius:50%;
+  background:var(--xf-grass);color:#fff;display:grid;place-items:center;
+  box-shadow:0 10px 26px rgba(31,77,56,.36);z-index:90;opacity:0;pointer-events:none;
+  transition:.3s;font-size:18px;
+}
+.xf-backtop.xf-show{opacity:1;pointer-events:auto;transform:translateY(0)}
+.xf-backtop:hover{background:var(--xf-grass-deep);transform:translateY(-3px)}
+
+/* Toast */
+.xf-toast{
+  position:fixed;left:50%;bottom:40px;transform:translate(-50%,20px);
+  background:rgba(22,53,42,.95);color:#f0f6f2;padding:12px 24px;border-radius:999px;
+  font-size:13.5px;z-index:200;opacity:0;pointer-events:none;transition:.3s;
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+.xf-toast.xf-show{opacity:1;transform:translate(-50%,0)}
+
+/* Modal */
+.xf-modal-mask{
+  position:fixed;inset:0;background:rgba(15,35,26,.55);backdrop-filter:blur(3px);
+  z-index:150;display:none;align-items:center;justify-content:center;padding:24px;
+}
+.xf-modal-mask.xf-show{display:flex}
+.xf-modal{
+  background:#fff;border-radius:20px;max-width:480px;width:100%;padding:30px;
+  box-shadow:0 30px 70px rgba(0,0,0,.3);animation:xf-pop .28s ease;
+  max-height:86vh;overflow:auto;
+}
+@keyframes xf-pop{from{transform:scale(.94);opacity:0}to{transform:scale(1);opacity:1}}
+.xf-modal h3{font-size:20px;font-weight:800;color:var(--xf-grass-deep);margin-bottom:8px}
+.xf-modal p{font-size:13.5px;color:var(--xf-mute);margin-bottom:18px}
+.xf-modal label{display:block;font-size:13px;font-weight:600;color:#3a4d43;margin-bottom:6px;margin-top:14px}
+.xf-modal input,.xf-modal textarea{
+  width:100%;padding:10px 14px;border-radius:10px;border:1px solid rgba(47,111,78,.25);
+  font-family:inherit;font-size:14px;outline:none;transition:.2s;background:#fcfbf7;color:var(--xf-ink);
+}
+.xf-modal input:focus,.xf-modal textarea:focus{border-color:var(--xf-grass);box-shadow:0 0 0 3px rgba(47,111,78,.12)}
+.xf-modal-actions{display:flex;justify-content:flex-end;gap:12px;margin-top:24px}
+.xf-modal-close{position:absolute;top:16px;right:16px}
+
+/* 搜索无结果提示 */
+.xf-empty-msg{
+  display:none;text-align:center;padding:34px 18px;color:var(--xf-mute);font-size:14px;
+  background:#fff;border-radius:var(--xf-radius);box-shadow:var(--xf-shadow);margin-top:16px;
+}
+.xf-empty-msg.xf-show{display:block}
+
+/* 响应式 */
+@media(max-width:1024px){
+  .xf-hero-grid{grid-template-columns:1fr;gap:40px}
+  .xf-hero h1{font-size:46px}
+  .xf-hero-visual{max-width:440px}
+  .xf-focus-grid{grid-template-columns:1fr 1fr}
+  .xf-focus-grid .xf-video-card-lg{grid-column:span 2}
+  .xf-topic-grid{grid-template-columns:1fr 1fr}
+  .xf-creator-grid{grid-template-columns:1fr 1fr}
+  .xf-review-grid{grid-template-columns:1fr 1fr}
+  .xf-rank-grid{grid-template-columns:1fr}
+  .xf-story-grid{grid-template-columns:1fr;gap:30px}
+  .xf-footer-grid{grid-template-columns:1fr 1fr}
+  .xf-contact-wrap{grid-template-columns:1fr;padding:38px 30px}
+  .xf-wall{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:820px){
+  .xf-nav{
+    display:none;position:absolute;top:100%;left:0;right:0;background:#fbf9f3;
+    flex-direction:column;padding:14px 20px;gap:4px;box-shadow:var(--xf-shadow);
+    border-bottom:1px solid rgba(47,111,78,.16);
+  }
+  .xf-nav.xf-open{display:flex}
+  .xf-nav a{padding:11px 14px}
+  .xf-burger{display:grid}
+  .xf-header-inner{position:relative}
+  .xf-search input{width:130px}
+  .xf-search input:focus{width:160px}
+  .xf-notice-list li:nth-child(n+2){display:none}
+  .xf-hero h1{font-size:38px}
+  .xf-section{padding:54px 0}
+  .xf-section-head h2{font-size:27px}
+  .xf-focus-grid{grid-template-columns:1fr}
+  .xf-focus-grid .xf-video-card-lg{grid-column:span 1}
+  .xf-topic-grid{grid-template-columns:1fr}
+  .xf-creator-grid{grid-template-columns:1fr}
+  .xf-review-grid{grid-template-columns:1fr}
+  .xf-news-list{grid-template-columns:1fr}
+  .xf-wall{grid-template-columns:repeat(2,1fr)}
+  .xf-wall-item.xf-wall-big{grid-column:span 2;grid-row:span 1;aspect-ratio:4/3}
+  .xf-footer-grid{grid-template-columns:1fr 1fr;gap:26px}
+  .xf-story-points{grid-template-columns:1fr}
+  .xf-hero-stats{gap:26px}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="xf-sticky-top">
+  <div class="xf-notice-bar">
+    <div class="xf-notice-inner">
+      <span class="xf-notice-tag">官方发布</span>
+      <ul class="xf-notice-list">
+        <li><strong>新增</strong>「幸福草·田间手记」第 12 期幕后影像上线</li>
+        <li><strong>专题</strong>「小院里的四季」影像企划开启征集，11 月 30 日截止报名</li>
+        <li><strong>更新</strong>创作者扶持计划第二期名单公示</li>
+      </ul>
+    </div>
+  </div>
+  <header class="xf-header">
+    <div class="xf-header-inner">
+      <a class="xf-brand" href="#xf-top" aria-label="幸福草官方网站首页">
+        <span class="xf-brand-mark">幸</span>
+        <span class="xf-brand-name">幸福草<small>XINGFUCAO · 官网</small></span>
+      </a>
+      <nav class="xf-nav" id="xf-nav">
+        <a href="#xf-top">首页</a>
+        <a href="#xf-focus">焦点内容</a>
+        <a href="#xf-topics">专题企划</a>
+        <a href="#xf-creators">创作者</a>
+        <a href="#xf-story">品牌故事</a>
+        <a href="#xf-news">企业动态</a>
+        <a href="#xf-faq">帮助</a>
+        <a href="#xf-contact">联系</a>
+      </nav>
+      <div class="xf-header-tools">
+        <div class="xf-search">
+          <input type="text" id="xf-search-input" placeholder="搜索剧集 / 专题 / 创作者" aria-label="站内搜索">
+          <button type="button" id="xf-search-btn" aria-label="搜索">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg>
+          </button>
+          <div class="xf-search-tip" id="xf-search-tip"></div>
+        </div>
+        <button class="xf-burger" id="xf-burger" aria-label="展开导航菜单" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<!-- 首屏 -->
+<section class="xf-hero xf-anchor" id="xf-top">
+  <div class="xf-container">
+    <div class="xf-hero-grid">
+      <div class="xf-hero-text">
+        <span class="xf-hero-eyebrow">幸福草官方网站 · 温暖现实题材影像品牌</span>
+        <h1>幸福草</h1>
+        <p class="xf-hero-lead">一株草的生长，是一段关于土地、家庭与坚持的影像长跑。</p>
+        <p class="xf-hero-desc">幸福草是深耕现实题材剧集与纪录影像的品牌平台，以原创正版内容为核心，围绕乡村生活、家庭情感与时代变化，持续为观众与创作者搭建高品质内容生态。</p>
+        <div class="xf-hero-actions">
+          <a class="xf-btn xf-btn-primary" href="#xf-focus">浏览焦点内容</a>
+          <a class="xf-btn xf-btn-ghost" href="#xf-creators">认识创作者</a>
+        </div>
+        <div class="xf-hero-stats">
+          <div class="xf-stat"><b data-xf-count="1280">1,280</b><span>原创精品内容</span></div>
+          <div class="xf-stat"><b data-xf-count="326">326</b><span>合作创作者</span></div>
+          <div class="xf-stat"><b data-xf-count="98">98%</b><span>用户口碑好评</span></div>
+        </div>
+      </div>
+      <div class="xf-hero-visual">
+        <div class="xf-hero-cover">
+          <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 750'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23f2d9a8'/%3E%3Cstop offset='0.55' stop-color='%23d9b878'/%3E%3Cstop offset='1' stop-color='%238fae6f'/%3E%3C/linearGradient%3E%3ClinearGradient id='hill' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%234f7a4a'/%3E%3Cstop offset='1' stop-color='%232b4d33'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='600' height='750' fill='url(%23sky)'/%3E%3Ccircle cx='450' cy='170' r='72' fill='%23f8ecc9' opacity='0.85'/%3E%3Cpath d='M0 520 Q150 420 300 480 T600 460 V750 H0 Z' fill='url(%23hill)'/%3E%3Cpath d='M0 600 Q180 520 360 580 T600 560 V750 H0 Z' fill='%233a5f3c' opacity='0.9'/%3E%3Cg stroke='%23e9e2b8' stroke-width='4' fill='none' opacity='0.85'%3E%3Cpath d='M180 610 q-14 -60 6 -118'/%3E%3Cpath d='M210 620 q-10 -52 10 -100'/%3E%3Cpath d='M255 630 q-8 -46 12 -88'/%3E%3C/g%3E%3Cg fill='%23f0e6b0' opacity='0.9'%3E%3Cellipse cx='186' cy='556' rx='16' ry='7'/%3E%3Cellipse cx='220' cy='570' rx='14' ry='6'/%3E%3Cellipse cx='267' cy='586' rx='13' ry='6'/%3E%3C/g%3E%3Cg fill='%231f3a28' opacity='0.55'%3E%3Crect x='70' y='440' width='90' height='60' rx='4'/%3E%3Cpath d='M58 442 L115 400 L172 442 Z'/%3E%3C/g%3E%3C/svg%3E" alt="幸福草品牌主视觉：黄昏田野与草叶剪影的温暖画面">
+          <span class="xf-hero-cover-tag">品牌主视觉 · 田间光影</span>
+          <div class="xf-play-badge"><span></span></div>
+        </div>
+        <div class="xf-float-card">
+          <div class="xf-fc-dot">草</div>
+          <div>
+            <b>本月品牌影像特辑</b>
+            <small>12 部原创内容 · 持续更新</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 焦点内容 -->
+<section class="xf-section xf-anchor" id="xf-focus">
+  <div class="xf-container">
+    <div class="xf-section-head">
+      <span class="xf-section-label">Focus Content</span>
+      <h2>焦点内容 · 幸福草影像精选</h2>
+      <p>由幸福草官方内容团队与签约创作者共同打磨的精品内容，涵盖剧集片段、幕后纪录与深度访谈，呈现真实而温暖的生活质感。</p>
+    </div>
+    <div class="xf-focus-grid" id="xf-focus-grid">
+      <article class="xf-video-card xf-video-card-lg" data-xf-keyword="田间手记 幸福草 剧集">
+        <div class="xf-video-thumb">
+          <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Cdefs%3E%3ClinearGradient id='a1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23f6e2b0'/%3E%3Cstop offset='1' stop-color='%23a9c48a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='640' height='360' fill='url(%23a1)'/%3E%3Cpath d='M0 260 Q160 200 320 240 T640 226 V360 H0 Z' fill='%23507b4c'/%3E%3Cpath d='M0 300 Q180 254 360 288 T640 276 V360 H0 Z' fill='%233a5c3b'/%3E%3Cg stroke='%23f3edc4' stroke-width='3' fill='none'%3E%3Cpath d='M150 292 q-10 -40 6 -76'/%3E%3Cpath d='M185 300 q-8 -36 8 -68'/%3E%3Cpath d='M222 306 q-6 -32 10 -60'/%3E%3C/g%3E%3Ccircle cx='520' cy='96' r='46' fill='%23f8edc6' opacity='0.9'/%3E%3Crect x='54' y='150' width='120' height='44' rx='22' fill='%23ffffff' opacity='0.7'/%3E%3C/svg%3E" alt="幸福草田间手记：黄昏稻田中的创作者身影">
+          <span class="xf-thumb-tag">幕后纪录</span>
+          <span class="xf-thumb-dur">24:18</span>
+        </div>
+        <div class="xf-video-body">
+          <h3>《幸福草·田间手记》第12期：一季稻子与三代人的耐心</h3>
+          <p>从插秧到收割，摄制组在幸福草拍摄地驻留 46 天，记录下土地与人之间缓慢而踏实的相处。这一期我们把镜头交给田埂边的老人，听他们讲关于节气和等待的故事。</p>
+          <div class="xf-video-meta">
+            <span class="xf-avatar-sm" style="background:#2f6f4e">草</span>
+            <span>幸福草官方影像</span>
+            <span>· 2026-11-15</span>
+            <span>· 8.6 万次播放</span>
+          </div>
+          <div class="xf-card-actions">
+            <button class="xf-icon-btn xf-like-btn" data-xf-count="3268">♡ 3,268</button>
+            <button class="xf-icon-btn xf-save-btn">☆ 收藏</button>
+            <button class="xf-icon-btn xf-share-btn">⤴ 分享</button>
+          </div>
+        </div>
+      </article>
+      <article class="xf-video-card" data-xf-keyword="小院 四季 幸福草">
+        <div class="xf-video-thumb">
+          <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Crect width='640' height='360' fill='%23e8ddc7'/%3E%3Cpath d='M60 300 V180 L180 110 L300 180 V300 Z' fill='%23a8815a'/%3E%3Cpath d='M40 190 L180 100 L320 190' stroke='%23664a2e' stroke-width='14' fill='none' stroke-linecap='round'/%3E%3Crect x='120' y='220' width='46' height='80' fill='%235a4730'/%3E%3Crect x='200' y='220' width='60' height='52' fill='%23cfdcc4'/%3E%3Crect x='360' y='150' width='220' height='150' rx='10' fill='%23f2ecdc'/%3E%3Crect x='386' y='176' width='168' height='14' fill='%23c9b28a'/%3E%3Crect x='386' y='208' width='120' height='10' fill='%23c9b28a'/%3E%3Crect x='386' y='234' width='150' height='10' fill='%23d8c8a8'/%3E%3Ccircle cx='500' cy='290' r='34' fill='%237fa06a'/%3E%3C/svg%3E" alt="小院里的四季专题：老屋庭院与木窗的静物构图">
+          <span class="xf-thumb-tag">生活纪录</span>
+          <span class="xf-thumb-dur">18:42</span>
+        </div>
+        <div class="xf-video-body">
+          <h3>小院里的四季：春天种下的不只是菜</h3>
+          <p>一间北方小院，两代人的种菜经。幸福草生活影像系列带你从春播看到秋收。</p>
+          <div class="xf-video-meta">
+            <span class="xf-avatar-sm" style="background:#8a6a45">院</span>
+            <span>院角阿岚</span>
+            <span>· 4.1 万播放</span>
+          </div>
+          <div class="xf-card-actions">
+            <button class="xf-icon-btn xf-like-btn" data-xf-count="1520">♡ 1,520</button>
+            <button class="xf-icon-btn xf-save-btn">☆ 收藏</button>
+          </div>
+        </div>
+      </article>
+      <article class="xf-video-card" data-xf-keyword="访谈 幸福草 创作者">
+        <div class="xf-video-thumb">
+          <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Crect width='640' height='360' fill='%232b3f3a'/%3E%3Ccircle cx='320' cy='150' r='74' fill='%2383a67f'/%3E%3Cpath d='M200 360 q120 -150 240 0' fill='%234d6b58'/%3E%3Crect x='250' y='60' width='140' height='18' rx='9' fill='%23c99a4b' opacity='0.85'/%3E%3Cg fill='%23f0e7cf' opacity='0.85'%3E%3Crect x='86' y='220' width='96' height='10' rx='5'/%3E%3Crect x='86' y='244' width='130' height='10' rx='5'/%3E%3Crect x='86' y='268' width='72' height='10' rx='5'/%3E%3C/g%3E%3C/svg%3E" alt="创作者深度访谈现场：人物剪影与暖色方形背景">
+          <span class="xf-thumb-tag">人物访谈</span>
+          <span class="xf-thumb-dur">31:06</span>
+        </div>
+        <div class="xf-video-body">
+          <h3>对话导演：为什么我们反复拍一株草</h3>
+          <p>关于选题、克制与真实表达，幸福草创作团队的一次长谈。</p>
+          <div class="xf-video-meta">
+            <span class="xf-avatar-sm" style="background:#5c9678">访</span>
+            <span>幸福草访谈间</span>
+            <span>· 3.7 万播放</span>
+          </div>
+          <div class="xf-card-actions">
+            <button class="xf-icon-btn xf-like-btn" data-xf-count="986">♡ 986</button>
+            <button class="xf-icon-btn xf-save-btn">☆ 收藏</button>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="xf-empty-msg" id="xf-search-empty">没有找到匹配的内容，试试「田间」「小院」「访谈」等关键词。</div>
+  </div>
+</section>
+
+<!-- 专题企划 -->
+<section class="xf-section xf-section-alt xf-anchor" id="xf-topics">
+  <div class="xf-container">
+    <div class="xf-section-head">
+      <span class="xf-section-label">Special Topics</span>
+      <h2>专题企划 · 一株草的多种讲述</h2>
+      <p>幸福草以季度为单位推出品牌专题，围绕土地、家庭、手艺与成长，邀请创作者提交原创影像，形成持续更新的内容生态。</p>
+    </div>
+    <div class="xf-topic-grid">
+      <article class="xf-topic-card">
+        <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 340'%3E%3Crect width='520' height='340' fill='%23c9a86a'/%3E%3Cpath d='M0 240 Q130 190 260 226 T520 210 V340 H0 Z' fill='%23936f42'/%3E%3Cg stroke='%23f0e6b8' stroke-width='3' fill='none'%3E%3Cpath d='M120 268 q-10 -46 8 -86'/%3E%3Cpath d='M158 274 q-8 -40 10 -76'/%3E%3C/g%3E%3Ccircle cx='400' cy='90' r='58' fill='%23f4e6bd' opacity='0.85'/%3E%3Crect x='40' y='60' width='120' height='30' rx='15' fill='%23ffffff' opacity='0.35'/%3E%3C/svg%3E" alt="专题封面：金色麦田与暖阳下的草叶线条">
+        <span class="xf-topic-state">更新至第 6 期</span>
+        <h3>小院里的四季</h3>
+        <p>记录中国普通家庭的院落生活，从春种到冬藏，呈现缓慢但真实的日常秩序。</p>
+      </article>
+      <article class="xf-topic-card">
+        <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 340'%3E%3Crect width='520' height='340' fill='%234a6b57'/%3E%3Cg fill='%23d8e6cf' opacity='0.85'%3E%3Crect x='60' y='90' width='150' height='96' rx='8'/%3E%3Crect x='240' y='120' width='110' height='66' rx='8'/%3E%3Crect x='380' y='76' width='88' height='110' rx='8'/%3E%3C/g%3E%3Cpath d='M0 300 Q160 250 320 286 T520 268 V340 H0 Z' fill='%232c4636'/%3E%3Ccircle cx='120' cy='250' r='30' fill='%23c99a4b' opacity='0.8'/%3E%3C/svg%3E" alt="专题封面：绿色田野与错落矩形构成的村庄意象">
+        <span class="xf-topic-state">报名中 · 11月30日截止</span>
+        <h3>村里的年轻手艺人</h3>
+        <p>聚焦返乡青年与在地手艺，用影像记录他们如何在乡土中找到职业与生活。</p>
+      </article>
+      <article class="xf-topic-card">
+        <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 340'%3E%3Crect width='520' height='340' fill='%23e3d6bd'/%3E%3Ccircle cx='260' cy='170' r='110' fill='%23b8a27a' opacity='0.55'/%3E%3Cpath d='M140 300 q120 -140 240 0' fill='%238fa77c'/%3E%3Cg fill='%234a3a24' opacity='0.7'%3E%3Ccircle cx='230' cy='150' r='9'/%3E%3Ccircle cx='290' cy='150' r='9'/%3E%3C/g%3E%3Cpath d='M240 196 q20 18 40 0' stroke='%234a3a24' stroke-width='4' fill='none' opacity='0.7'/%3E%3Crect x='380' y='60' width='90' height='26' rx='13' fill='%23ffffff' opacity='0.5'/%3E%3C/svg%3E" alt="专题封面：柔和米色中的人物笑脸与草绿弧线">
+        <span class="xf-topic-state">已完结 · 全 8 集</span>
+        <h3>和妈妈一起长大</h3>
+        <p>母女、父子、祖孙之间的日常对谈，幸福草品牌故事企划中的情感篇章。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 创作者矩阵 -->
+<section class="xf-section xf-anchor" id="xf-creators">
+  <div class="xf-container">
+    <div class="xf-section-head">
+      <span class="xf-section-label">Creators</span>
+      <h2>创作者矩阵 · 幸福草社区的中坚力量</h2>
+      <p>幸福草持续运营创作者扶持计划，我们相信稳定的社区生态来自真实表达。以下创作者长期深耕生活纪录、人物访谈与乡土影像领域。</p>
+    </div>
+    <div class="xf-creator-grid">
+      <article class="xf-creator-card">
+        <div class="xf-creator-avatar" style="background:#2f6f4e">岚</div>
+        <h3>院角阿岚</h3>
+        <div class="xf-creator-field">生活纪录 / 庭院种植</div>
+        <p>在北方小城记录四季菜园与厨房日常，作品节奏舒缓，被观众称为「慢下来的半小时」。</p>
+        <div class="xf-creator-nums"><span>作品 <b>86</b></span><span>粉丝 <b>12.4万</b></span></div>
+      </article>
+      <article class="xf-creator-card">
+        <div class="xf-creator-avatar" style="background:#8a6a45">禾</div>
+        <h3>禾下老周</h3>
+        <div class="xf-creator-field">乡土影像 / 人物访谈</div>
+        <p>退休农技员转型影像创作者，用镜头记录乡村手艺人与节气农事，内容扎实、细节丰富。</p>
+        <div class="xf-creator-nums"><span>作品 <b>143</b></span><span>粉丝 <b>18.7万</b></span></div>
+      </article>
+      <article class="xf-creator-card">
+        <div class="xf-creator-avatar" style="background:#5c9678">叶</div>
+        <h3>叶子在城里</h3>
+        <div class="xf-creator-field">城市探索 / 家庭情感</div>
+        <p>一边在城市上班，一边拍摄父母在老家的生活，作品擅长在细小处呈现代际之间的理解。</p>
+        <div class="xf-creator-nums"><span>作品 <b>64</b></span><span>粉丝 <b>9.2万</b></span></div>
+      </article>
+      <article class="xf-creator-card">
+        <div class="xf-creator-avatar" style="background:#c99a4b">乔</div>
+        <h3>乔小满</h3>
+        <div class="xf-creator-field">创作幕后 / 剪辑教学</div>
+        <p>幸福草签约创作者，分享田野纪录片的拍摄与剪辑方法，帮助新创作者完成第一支作品。</p>
+        <div class="xf-creator-nums"><span>作品 <b>52</b></span><span>粉丝 <b>7.8万</b></span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 影像墙 -->
+<section class="xf-section xf-section-alt xf-anchor" id="xf-wall">
+  <div class="xf-container">
+    <div class="xf-section-head">
+      <span class="xf-section-label">Image Wall</span>
+      <h2>用户作品墙 · 幸福草社区的日常切片</h2>
+      <p>来自幸福草社区用户的原创影像投稿，以不同视角呈现土地、家人与季节。每一张都经过官方审核，正版授权展示。</p>
+    </div>
+    <div class="xf-wall">
+      <figure class="xf-wall-item xf-wall-big" data-xf-keyword="稻田 幸福草">
+        <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Crect width='600' height='600' fill='%23e9d9a8'/%3E%3Cpath d='M0 420 Q160 350 320 400 T600 380 V600 H0 Z' fill='%237a9a5c'/%3E%3Cpath d='M0 500 Q180 440 360 484 T600 462 V600 H0 Z' fill='%234d6d40'/%3E%3Cg stroke='%23f3ecc0' stroke-width='4' fill='none'%3E%3Cpath d='M180 500 q-12 -60 6 -110'/%3E%3Cpath d='M240 512 q-10 -54 10 -98'/%3E%3Cpath d='M310 520 q-8 -48 12 -88'/%3E%3C/g%3E%3Ccircle cx='470' cy='140' r='66' fill='%23f9efc9'/%3E%3C/svg%3E" alt="用户作品：金色稻田中挺立的草叶与斜阳">
+        <figcaption>黄昏稻田 · 摄影师 禾下老周</figcaption>
+      </figure>
+      <figure class="xf-wall-item xf-wall-mid">
+        <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23cfdccf'/%3E%3Crect x='60' y='120' width='180' height='120' fill='%23a5875f'/%3E%3Cpath d='M40 124 L150 60 L260 124' stroke='%236a4f31' stroke-width='10' fill='none' stroke-linecap='round'/%3E%3Crect x='130' y='170' width='46' height='70' fill='%2354402a'/%3E%3Crect x='280' y='150' width='80' height='90' rx='8' fill='%23f0e9d8'/%3E%3C/svg%3E" alt="用户作品：老屋木门与院墙的午后光影">
+        <figcaption>老屋门口 · 阿蓝</figcaption>
+      </figure>
+      <figure class="xf-wall-item xf-wall-sm">
+        <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f0d9b0'/%3E%3Ccircle cx='200' cy='120' r='60' fill='%23e0a860' opacity='0.8'/%3E%3Cpath d='M0 220 Q120 180 240 210 T400 196 V300 H0 Z' fill='%237c5c38'/%3E%3Cg fill='%23462f1a' opacity='0.7'%3E%3Crect x='90' y='240' width='60' height='40' rx='6'/%3E%3Crect x='190' y='252' width='50' height='32' rx='6'/%3E%3C/g%3E%3C/svg%3E" alt="用户作品：厨房灶台上的陶罐与暖光">
+        <figcaption>灶台一角 · 小满</figcaption>
+      </figure>
+      <figure class="xf-wall-item xf-wall-sm">
+        <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23b9c9d6'/%3E%3Cpath d='M0 210 Q120 160 240 200 T400 186 V300 H0 Z' fill='%23698a6e'/%3E%3Cg stroke='%23e8eef0' stroke-width='3' fill='none'%3E%3Cpath d='M140 230 q-8 -34 6 -64'/%3E%3Cpath d='M176 236 q-6 -30 8 -56'/%3E%3C/g%3E%3Crect x='250' y='80' width='90' height='54' rx='8' fill='%23ffffff' opacity='0.55'/%3E%3C/svg%3E" alt="用户作品：雨后草叶与水汽朦胧的远山">
+        <figcaption>雨后 · 叶子在城里</figcaption>
+      </figure>
+      <figure class="xf-wall-item xf-wall-mid">
+        <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23e6e0cf'/%3E%3Crect x='40' y='70' width='320' height='170' rx='10' fill='%23fbf8ef'/%3E%3Cg fill='%238b9c7e'%3E%3Crect x='70' y='100' width='120' height='12' rx='6'/%3E%3Crect x='70' y='128' width='200' height='10' rx='5'/%3E%3Crect x='70' y='152' width='160' height='10' rx='5'/%3E%3Crect x='70' y='176' width='180' height='10' rx='5'/%3E%3C/g%3E%3Ccircle cx='310' cy='196' r='26' fill='%23c99a4b' opacity='0.7'/%3E%3C/svg%3E" alt="用户作品：手写笔记与拍摄脚本的桌面">
+        <figcaption>脚本手稿 · 乔小满</figcaption>
+      </figure>
+      <figure class="xf-wall-item xf-wall-sm">
+        <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23d8c9a8'/%3E%3Cpath d='M0 240 Q140 196 280 226 T400 214 V300 H0 Z' fill='%238a7145'/%3E%3Crect x='120' y='120' width='160' height='86' rx='8' fill='%23f4ecd8'/%3E%3Crect x='146' y='146' width='108' height='34' fill='%23b5a07a'/%3E%3C/svg%3E" alt="用户作品：晾晒的谷物与竹匾俯拍">
+        <figcaption>晒秋 · 院角阿岚</figcaption>
+      </figure>
+      <figure class="xf-wall-item xf-wall-sm">
+        <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%232d4a3c'/%3E%3Ccircle cx='200' cy='140' r='70' fill='%23e9d79a' opacity='0.85'/%3E%3Cpath d='M0 260 Q130 220 260 246 T400 234 V300 H0 Z' fill='%231b3028'/%3E%3Cg fill='%23f0e6c0' opacity='0.8'%3E%3Ccircle cx='80' cy='70' r='3'/%3E%3Ccircle cx='150' cy='50' r='2.5'/%3E%3Ccircle cx='320' cy='66' r='3'/%3E%3C/g%3E%3C/svg%3E" alt="用户作品：夜色下的院灯与星空剪影">
+        <figcaption>夜灯 · 匿名投稿</figcaption>
+      </figure>
+      <figure class="xf-wall-item xf-wall-sm">
+        <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23e3cfa8'/%3E%3Cpath d='M0 230 Q120 190 240 216 T400 202 V300 H0 Z' fill='%239a8352'/%3E%3Cg stroke='%23f4ecc8' stroke-width='3' fill='none'%3E%3Cpath d='M150 240 q-8 -38 6 -70'/%3E%3Cpath d='M196 246 q-6 -34 8 -62'/%3E%3C/g%3E%3Crect x='60' y='60' width='110' height='20' rx='10' fill='%23ffffff' opacity='0.6'/%3E%3C/svg%3E" alt="用户作品：草叶特写与浅金色背景">
+        <figcaption>叶脉 · 禾下老周</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 品牌故事 -->
+<section class="xf-section xf-anchor" id="xf-story">
+  <div class="xf-container">
+    <div class="xf-story-grid">
+      <div class="xf-story-visual">
+        <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 480'%3E%3Crect width='600' height='480' fill='%23f1e8d2'/%3E%3Ccircle cx='420' cy='130' r='90' fill='%23e3c98f' opacity='0.7'/%3E%3Cpath d='M0 330 Q150 270 300 306 T600 290 V480 H0 Z' fill='%235e7f53'/%3E%3Cpath d='M0 400 Q180 344 360 380 T600 362 V480 H0 Z' fill='%233a5a3b'/%3E%3Cg stroke='%23f4eec6' stroke-width='4' fill='none'%3E%3Cpath d='M180 396 q-12 -56 8 -104'/%3E%3Cpath d='M240 404 q-10 -50 10 -92'/%3E%3Cpath d='M310 414 q-8 -46 12 -84'/%3E%3C/g%3E%3Crect x='70' y='100' width='150' height='22' rx='11' fill='%23ffffff' opacity='0.55'/%3E%3Crect x='70' y='140' width='110' height='22' rx='11' fill='%23ffffff' opacity='0.4'/%3E%3C/svg%3E" alt="幸福草品牌故事配图：草叶与土地的抽象构图层叠">
+      </div>
+      <div class="xf-story-text">
+        <span class="xf-section-label">Brand Story</span>
+        <h2>关于幸福草：一棵草的坚持，一群人的共同成长</h2>
+        <p>幸福草诞生于一次田野拍摄。团队在村里蹲守一个夏季，发现真正打动人的并不是戏剧化的转折，而是日复一日的耐心。于是我们把「真实、温暖、有力量」定为品牌的长期方向。</p>
+        <p>作为深耕现实题材的视频品牌，幸福草官方网站同时承担内容发布、创作者展示与社区互动三项职能。我们坚持原创正版、高清呈现，为每一位观众提供值得信赖的观看体验。</p>
+        <p>从剧集到纪录，从创作者访谈到手艺记录，幸福草希望成为用户首选的现实题材影像社区，也希望通过持续运营，让更多普通人的故事被看见。</p>
+        <div class="xf-story-points">
+          <div class="xf-story-point"><b>原创正版</b><small>全部内容官方授权发布</small></div>
+          <div class="xf-story-point"><b>深耕现实</b><small>聚焦土地与家庭题材</small></div>
+          <div class="xf-story-point"><b>创作者优先</b><small>长期扶持与社区共创</small></div>
+          <div class="xf-story-point"><b>品质口碑</b><small>98% 用户好评推荐</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 深度解析长文 -->
+<section class="xf-section xf-section-alt xf-anchor" id="xf-insight">
+  <div class="xf-container">
+    <div class="xf-section-head xf-section-head-center">
+      <span class="xf-section-label">Insight</span>
+      <h2>幸福草关键词解析：为什么是「草」</h2>
+      <p>一个看似朴素的意象，如何成为品牌的内容方法论与社区共识。</p>
+    </div>
+    <div class="xf-prose">
+      <h3>一株草的形象：低姿态，高韧性</h3>
+      <p>在幸福草的影像体系里，「草」不是一个装饰符号，而是一套完整的叙事逻辑。草的生长不需要宏大的舞台，它在田埂、墙角、石缝里都能扎下根来，这种低调而顽强的生命力，恰好对应了品牌所关注的普通人日常。我们选择幸福草作为名字，是希望把镜头对准那些不被聚光灯照到、却始终在生长的生活。</p>
+      <p>因此，在幸福草官方网站上，你不会看到过度修饰的包装。我们更愿意把时间花在真实的场景里：一次完整的插秧、一顿家常的晚饭、一场毫无准备的母子对话。平台内容团队把这称为「低姿态记录法」，它要求创作者先放下表达欲，再进入现场。</p>
+      <h3>幸福草的三条内容线索</h3>
+      <p>第一条线索是土地。幸福草围绕乡村与自然展开内容，从节气农事到在地手艺，强调可验证的细节与长期观察。第二条线索是家庭。我们相信代际之间的理解往往发生在饭桌、院子和长途电话里，因此剧集与访谈都聚焦这些微小场景。第三条线索是成长。无论是一个人、一门手艺，还是一段关系，幸福草都试图呈现其变化过程，而不是只给结论。</p>
+      <blockquote>「幸福草不追求一夜之间的走红，我们更在意一季又一季的稳定生长。」这是品牌团队在内部创作手册里写下的一句话，也解释了为什么平台的内容更新节奏始终围绕季节而非流量。</blockquote>
+      <h3>社区与创作者：内容生态的两端</h3>
+      <p>幸福草的内容生态由官方内容团队与社区创作者共同组成。官方负责出品与审核，确保所有发布内容为正版高清素材；社区负责延展与补充，把镜头伸向更具体的地方。为了让新创作者更容易起步，平台长期开放创作灵感、脚本建议与剪辑思路栏目，并定期公布创作者扶持计划名单。</p>
+      <p>在社区互动层面，幸福草采用标签筛选、收藏与分享等多种方式，让用户能够快速找到自己关心的题材。我们希望社区的氛围是包容而真实的，允许表达不完美，也允许讨论不同意见。正因如此，平台的口碑来自长期积累，而不是短期投放。</p>
+      <h3>面向未来：持续运营与社会责任</h3>
+      <p>面向未来，幸福草将继续深耕现实题材这一垂直领域，保持稳定的原创产出，同时加强与地方文化机构、手艺人与青年创作者的合作。品牌将定期举办公益影像征集与主题比赛，为更多普通记录者提供展示机会。我们相信，一家值得信赖的视频企业，既要对内容品质负责，也要对所呈现的人和土地负责。</p>
+      <p>如果你也愿意用影像记录身边的幸福草，欢迎通过投稿入口与我们联系。官方网站将持续更新企业动态、专题企划与创作者名单，陪伴每一位观众与创作者，走过一季又一季。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 数据榜单 -->
+<section class="xf-section xf-anchor" id="xf-rank">
+  <div class="xf-container">
+    <div class="xf-section-head">
+      <span class="xf-section-label">Ranking</span>
+      <h2>幸福草社区榜单 · 本周热度回顾</h2>
+      <p>基于站内播放、收藏与社区讨论综合计算，每周更新一次，呈现幸福草社区当前最受关注的内容与创作者。</p>
+    </div>
+    <div class="xf-rank-grid">
+      <div class="xf-rank-card">
+        <h3>热度内容榜 <span>周更</span></h3>
+        <ul class="xf-rank-list">
+          <li><span class="xf-rank-no">1</span><span class="xf-rank-name">田间手记第12期</span><span class="xf-rank-val">8.6万</span></li>
+          <li><span class="xf-rank-no">2</span><span class="xf-rank-name">小院里的四季</span><span class="xf-rank-val">4.1万</span></li>
+          <li><span class="xf-rank-no">3</span><span class="xf-rank-name">对话导演</span><span class="xf-rank-val">3.7万</span></li>
+          <li><span class="xf-rank-no">4</span><span class="xf-rank-name">晒秋的十二种做法</span><span class="xf-rank-val">2.9万</span></li>
+          <li><span class="xf-rank-no">5</span><span class="xf-rank-name">村口那棵老树</span><span class="xf-rank-val">2.4万</span></li>
+        </ul>
+      </div>
+      <div class="xf-rank-card">
+        <h3>新人创作者榜 <span>月度</span></h3>
+        <ul class="xf-rank-list">
+          <li><span class="xf-rank-no">1</span><span class="xf-rank-name">南坡小俞</span><span class="xf-rank-val">+1.2万粉</span></li>
+          <li><span class="xf-rank-no">2</span><span class="xf-rank-name">阿婆的灶台</span><span class="xf-rank-val">+8,600</span></li>
+          <li><span class="xf-rank-no">3</span><span class="xf-rank-name">乡镇放映员</span><span class="xf-rank-val">+7,100</span></li>
+          <li><span class="xf-rank-no">4</span><span class="xf-rank-name">拾穗小分队</span><span class="xf-rank-val">+5,400</span></li>
+          <li><span class="xf-rank-no">5</span><span class="xf-rank-name">稻香记事</span><span class="xf-rank-val">+4,900</span></li>
+        </ul>
+      </div>
+      <div class="xf-rank-card">
+        <h3>口碑推荐榜 <span>季度</span></h3>
+        <ul class="xf-rank-list">
+          <li><span class="xf-rank-no">1</span><span class="xf-rank-name">和妈妈一起长大</span><span class="xf-rank-val">9.6 分</span></li>
+          <li><span class="xf-rank-no">2</span><span class="xf-rank-name">田野里的课堂</span><span class="xf-rank-val">9.4 分</span></li>
+          <li><span class="xf-rank-no">3</span><span class="xf-rank-name">返乡青年手记</span><span class="xf-rank-val">9.2 分</span></li>
+          <li><span class="xf-rank-no">4</span><span class="xf-rank-name">一碗面的时间</span><span class="xf-rank-val">9.0 分</span></li>
+          <li><span class="xf-rank-no">5</span><span class="xf-rank-name">草叶摄影课</span><span class="xf-rank-val">8.9 分</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 用户评价 -->
+<section class="xf-section xf-section-alt xf-anchor" id="xf-reviews">
+  <div class="xf-container">
+    <div class="xf-section-head">
+      <span class="xf-section-label">Reviews</span>
+      <h2>用户评价 · 来自幸福草社区的真实声音</h2>
+      <p>以下内容来自站内用户留言与专题活动反馈，经过昵称匿名处理，呈现不同维度的观看与创作体验。</p>
+    </div>
+    <div class="xf-review-grid">
+      <div class="xf-review-card">
+        <div class="xf-review-head">
+          <span class="xf-review-avatar" style="background:#2f6f4e">青</span>
+          <div><b>青禾不语</b><small>观看 2 年</small></div>
+        </div>
+        <div class="xf-stars">★★★★★</div>
+        <p>喜欢幸福草的节奏，不急着给答案。田间手记那期我看了三遍，镜头很安静，但看完心里是满的。</p>
+      </div>
+      <div class="xf-review-card">
+        <div class="xf-review-head">
+          <span class="xf-review-avatar" style="background:#8a6a45">魏</span>
+          <div><b>魏小满</b><small>创作者</small></div>
+        </div>
+        <div class="xf-stars">★★★★★</div>
+        <p>作为新创作者，平台的脚本建议栏目对我帮助很大，投稿审核反馈也很具体，不是简单一句「不通过」。</p>
+      </div>
+      <div class="xf-review-card">
+        <div class="xf-review-head">
+          <span class="xf-review-avatar" style="background:#5c9678">林</span>
+          <div><b>林下风</b><small>观看 1 年</small></div>
+        </div>
+        <div class="xf-stars">★★★★☆</div>
+        <p>画质确实清晰，正版内容看着放心。希望以后能多一些幕后花絮，我对拍摄过程很感兴趣。</p>
+      </div>
+      <div class="xf-review-card">
+        <div class="xf-review-head">
+          <span class="xf-review-avatar" style="background:#c99a4b">木</span>
+          <div><b>木门半开</b><small>观看 3 年</small></div>
+        </div>
+        <div class="xf-stars">★★★★★</div>
+        <p>一家人晚饭后一起看的专题，爸妈难得没换台。小院里的四季像回到了我小时候的院子。</p>
+      </div>
+      <div class="xf-review-card">
+        <div class="xf-review-head">
+          <span class="xf-review-avatar" style="background:#3a5a3b">陆</span>
+          <div><b>陆上行舟</b><small>社区活跃用户</small></div>
+        </div>
+        <div class="xf-stars">★★★★☆</div>
+        <p>话题讨论区氛围不错，大家会认真聊选题和镜头语言。要是能按地区筛选作品就更好了。</p>
+      </div>
+      <div class="xf-review-card">
+        <div class="xf-review-head">
+          <span class="xf-review-avatar" style="background:#a8815a">南</span>
+          <div><b>南坡小俞</b><small>新入驻创作者</small></div>
+        </div>
+        <div class="xf-stars">★★★★★</div>
+        <p>第一次投稿就被推荐到作品墙，收到很多鼓励。幸福草的社区很包容，愿意给新人机会。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 企业动态 -->
+<section class="xf-section xf-anchor" id="xf-news">
+  <div class="xf-container">
+    <div class="xf-section-head">
+      <span class="xf-section-label">News</span>
+      <h2>企业动态 · 幸福草官方发布</h2>
+      <p>品牌资讯、内容更新与社区活动公告，持续记录幸福草的成长轨迹。</p>
+    </div>
+    <div class="xf-news-list">
+      <article class="xf-news-item">
+        <div class="xf-news-date"><b>19</b><small>11月</small></div>
+        <div>
+          <h3>「小院里的四季」影像企划第二期开启征集</h3>
+          <p>面向全体社区创作者征集原创纪录片，主题围绕院落生活与家庭日常，报名截止 11 月 30 日。</p>
+        </div>
+      </article>
+      <article class="xf-news-item">
+        <div class="xf-news-date"><b>15</b><small>11月</small></div>
+        <div>
+          <h3>《幸福草·田间手记》第 12 期正式上线</h3>
+          <p>本期聚焦一季稻子的完整生长周期，官方影像团队驻留拍摄 46 天，呈现三代人的田间日常。</p>
+        </div>
+      </article>
+      <article class="xf-news-item">
+        <div class="xf-news-date"><b>08</b><small>11月</small></div>
+        <div>
+          <h3>创作者扶持计划第二期名单公示</h3>
+          <p>本期共有 24 位创作者入选，平台将提供拍摄设备支持与内容运营指导，扶持周期为 6 个月。</p>
+        </div>
+      </article>
+      <article class="xf-news-item">
+        <div class="xf-news-date"><b>26</b><small>10月</small></div>
+        <div>
+          <h3>「乡野拾光」主题比赛结果公布</h3>
+          <p>比赛共收到 317 件投稿，最终评选出 12 件优秀作品，获奖影像将在官网作品墙长期展出。</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="xf-section xf-section-alt xf-anchor" id="xf-faq">
+  <div class="xf-container">
+    <div class="xf-section-head xf-section-head-center">
+      <span class="xf-section-label">FAQ</span>
+      <h2>帮助中心 · 常见问题</h2>
+      <p>关于内容、投稿与社区规则，这里集中整理了你可能关心的问题。</p>
+    </div>
+    <div class="xf-faq">
+      <details open>
+        <summary>幸福草官网的内容是原创正版的吗？</summary>
+        <p>是的。幸福草官方网站发布的内容均由官方团队出品或经创作者正式授权，全部为正版高清素材。平台对每一部上线作品进行版权核验，未经授权的内容不会展示。如发现疑似侵权情况，可通过反馈入口提交，我们会在 3 个工作日内响应。</p>
+      </details>
+      <details>
+        <summary>如何向幸福草投稿自己的影像作品？</summary>
+        <p>点击页面下方「我要投稿」按钮，填写作品标题、题材方向与素材链接即可。投稿作品需为本人原创，建议使用 16:9 画幅、1080P 以上的素材。审核周期通常为 5 至 7 个工作日，通过后会有编辑与你沟通展示安排。</p>
+      </details>
+      <details>
+        <summary>平台支持哪些题材的内容创作？</summary>
+        <p>幸福草长期关注土地、家庭、手艺与成长四类方向，具体包括日常记录、人物访谈、乡土影像、创作幕后与生活经验分享等。我们也欢迎跨界尝试，只要内容真实、表达克制、细节扎实，都在欢迎范围内。</p>
+      </details>
+      <details>
+        <summary>创作者扶持计划如何报名？</summary>
+        <p>扶持计划按季度开放报名，每期名额约 20 至 30 位。报名需提交一份拍摄计划与过往作品，平台将从选题价值、执行能力与长期投入三个维度评估。入选创作者可获得设备支持、内容指导与站内推荐资源。</p>
+      </details>
+      <details>
+        <summary>为什么有些内容更新节奏比较慢？</summary>
+        <p>幸福草坚持季节性的拍摄节奏，许多内容需要真实等待作物生长或事件发生，因此更新频率低于常规资讯类平台。我们认为慢下来是题材本身的要求，也是品牌对真实性的承诺。</p>
+      </details>
+      <details>
+        <summary>如何参与社区的专题讨论与活动？</summary>
+        <p>注册账号后即可在话题区参与讨论，也可在专题页面留言。平台定期举办主题比赛与征集活动，参与方式会在企业动态中公布。请遵守社区公约，尊重他人表达，避免发布与主题无关的内容。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 联系与投稿 -->
+<section class="xf-section xf-anchor" id="xf-contact">
+  <div class="xf-container">
+    <div class="xf-contact-wrap">
+      <div>
+        <h2>和幸福草一起，记录真实的生活</h2>
+        <p>无论你是观众、创作者还是合作机构，欢迎与我们联系。幸福草官方网站持续开放投稿与品牌合作通道，期待与你共同生长。</p>
+        <div class="xf-contact-actions">
+          <button class="xf-btn xf-btn-primary" id="xf-submit-open">我要投稿</button>
+          <button class="xf-btn xf-btn-ghost" id="xf-contact-open">合作咨询</button>
+        </div>
+      </div>
+      <div class="xf-contact-info">
+        <div class="xf-contact-item"><span class="xf-ci-icon">邮</span><div><b>官方邮箱</b><small>brand@xingfucao.example</small></div></div>
+        <div class="xf-contact-item"><span class="xf-ci-icon">投</span><div><b>投稿通道</b><small>每周一至周五 10:00 - 18:00</small></div></div>
+        <div class="xf-contact-item"><span class="xf-ci-icon">合</span><div><b>品牌合作</b><small>内容共创 / 专题联名 / 公益影像</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="xf-footer">
+  <div class="xf-container">
+    <div class="xf-footer-grid">
+      <div class="xf-footer-brand">
+        <div class="xf-brand-name">幸福草<small>XINGFUCAO · 官方网站</small></div>
+        <p>幸福草是深耕现实题材的视频品牌平台，以原创正版内容为核心，持续运营土地、家庭与成长主题的影像社区，为用户提供值得信赖的观看与创作体验。</p>
+      </div>
+      <div>
+        <h4>内容浏览</h4>
+        <ul>
+          <li><a href="#xf-focus">焦点内容</a></li>
+          <li><a href="#xf-topics">专题企划</a></li>
+          <li><a href="#xf-wall">作品墙</a></li>
+          <li><a href="#xf-rank">社区榜单</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>品牌与社区</h4>
+        <ul>
+          <li><a href="#xf-story">品牌故事</a></li>
+          <li><a href="#xf-creators">创作者矩阵</a></li>
+          <li><a href="#xf-news">企业动态</a></li>
+          <li><a href="#xf-reviews">用户评价</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>帮助与联系</h4>
+        <ul>
+          <li><a href="#xf-faq">常见问题</a></li>
+          <li><a href="#xf-contact">投稿通道</a></li>
+          <li><a href="#xf-contact">合作咨询</a></li>
+          <li><a href="#xf-top">回到首页</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="xf-footer-bottom">
+      <span>© 2026 幸福草官方网站 · 版权所有 · 持续运营中</span>
+      <span>原创正版 · 高清内容 · 用户至上 · 值得信赖</span>
+    </div>
+  </div>
+</footer>
+
+<button class="xf-backtop" id="xf-backtop" aria-label="回到顶部">↑</button>
+<div class="xf-toast" id="xf-toast"></div>
+
+<div class="xf-modal-mask" id="xf-modal-mask">
+  <div class="xf-modal" role="dialog" aria-modal="true">
+    <button class="xf-icon-btn xf-modal-close" id="xf-modal-close" aria-label="关闭弹窗">✕</button>
+    <h3 id="xf-modal-title">投稿</h3>
+    <p id="xf-modal-desc">填写简要信息，幸福草编辑团队会尽快与你联系。</p>
+    <form id="xf-modal-form">
+      <label for="xf-form-name">称呼</label>
+      <input id="xf-form-name" type="text" placeholder="怎么称呼你" required>
+      <label for="xf-form-contact">联系方式</label>
+      <input id="xf-form-contact" type="text" placeholder="邮箱或手机号" required>
+      <label for="xf-form-msg">作品或合作简述</label>
+      <textarea id="xf-form-msg" rows="3" placeholder="简单介绍你的作品方向或合作意向"></textarea>
+      <div class="xf-modal-actions">
+        <button type="button" class="xf-btn xf-btn-soft" id="xf-modal-cancel">取消</button>
+        <button type="submit" class="xf-btn xf-btn-primary">提交</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* 移动端导航 */
+  var burger = document.getElementById('xf-burger');
+  var nav = document.getElementById('xf-nav');
+  if(burger && nav){
+    burger.addEventListener('click', function(){
+      var open = nav.classList.toggle('xf-open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        nav.classList.remove('xf-open');
+        burger.setAttribute('aria-expanded','false');
+      });
+    });
+  }
+
+  /* Toast */
+  var toast = document.getElementById('xf-toast');
+  var toastTimer = null;
+  function showToast(msg){
+    if(!toast) return;
+    toast.textContent = msg;
+    toast.classList.add('xf-show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toast.classList.remove('xf-show'); }, 2200);
+  }
+
+  /* 搜索 */
+  var searchInput = document.getElementById('xf-search-input');
+  var searchBtn = document.getElementById('xf-search-btn');
+  var searchTip = document.getElementById('xf-search-tip');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.xf-video-card'));
+  var emptyMsg = document.getElementById('xf-search-empty');
+
+  function doSearch(){
+    var q = (searchInput.value || '').trim();
+    if(!q){
+      showToast('请输入剧集、专题或创作者名称');
+      return;
+    }
+    var hit = 0;
+    cards.forEach(function(card){
+      var text = (card.getAttribute('data-xf-keyword') || '') + ' ' + card.textContent;
+      var match = text.indexOf(q) > -1;
+      card.style.display = match ? '' : 'none';
+      if(match) hit++;
+    });
+    if(emptyMsg) emptyMsg.classList.toggle('xf-show', hit === 0);
+    showToast(hit > 0 ? '找到 ' + hit + ' 条与「' + q + '」相关的内容' : '未找到相关内容，换个关键词试试');
+    var focus = document.getElementById('xf-focus');
+    if(focus) focus.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  if(searchBtn){
+    searchBtn.addEventListener('click', doSearch);
+  }
+  if(searchInput){
+    searchInput.addEventListener('keydown', function(e){
+      if(e.key === 'Enter') doSearch();
+    });
+    searchInput.addEventListener('input', function(){
+      var v = searchInput.value.trim();
+      if(!v || !searchTip){ searchTip && searchTip.classList.remove('xf-show'); return; }
+      var pool = ['田间手记','小院里的四季','对话导演','幸福草访谈','创作幕后','乡土影像'];
+      var hits = pool.filter(function(x){ return x.indexOf(v) > -1; });
+      if(hits.length){
+        searchTip.innerHTML = hits.map(function(x){ return '<span>'+x+'</span>'; }).join('');
+        searchTip.querySelectorAll('span').forEach(function(s){
+          s.addEventListener('click', function(){
+            searchInput.value = s.textContent;
+            searchTip.classList.remove('xf-show');
+            doSearch();
+          });
+        });
+        searchTip.classList.add('xf-show');
+      } else {
+        searchTip.innerHTML = '<span>暂无搜索建议</span>';
+        searchTip.classList.add('xf-show');
+      }
+    });
+    document.addEventListener('click', function(e){
+      if(!searchTip) return;
+      if(!e.target.closest('.xf-search')) searchTip.classList.remove('xf-show');
+    });
+  }
+
+  /* 点赞 */
+  document.querySelectorAll('.xf-like-btn').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var base = parseInt(btn.getAttribute('data-xf-count') || '0', 10);
+      var liked = btn.classList.toggle('xf-liked');
+      var num = liked ? base + 1 : base;
+      btn.textContent = (liked ? '♥ ' : '♡ ') + num.toLocaleString('en-US');
+      showToast(liked ? '已点赞，感谢你的支持' : '已取消点赞');
+    });
+  });
+
+  /* 收藏 */
+  document.querySelectorAll('.xf-save-btn').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var saved = btn.classList.toggle('xf-saved');
+      btn.textContent = saved ? '★ 已收藏' : '☆ 收藏';
+      showToast(saved ? '已加入我的收藏' : '已取消收藏');
+    });
+  });
+
+  /* 分享 */
+  function bindShare(el){
+    el.addEventListener('click', function(e){
+      e.stopPropagation();
+      var url = window.location.href.split('#')[0];
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(url).then(function(){
+          showToast('链接已复制，可粘贴分享给朋友');
+        }).catch(function(){
+          showToast('分享链接：' + url);
+        });
+      } else {
+        showToast('分享链接：' + url);
+      }
+    });
+  }
+  document.querySelectorAll('.xf-share-btn').forEach(bindShare);
+
+  /* 弹窗 */
+  var mask = document.getElementById('xf-modal-mask');
+  var modalTitle = document.getElementById('xf-modal-title');
+  var modalDesc = document.getElementById('xf-modal-desc');
+  function openModal(title, desc){
+    if(!mask) return;
+    modalTitle.textContent = title;
+    modalDesc.textContent = desc;
+    mask.classList.add('xf-show');
+  }
+  function closeModal(){ if(mask) mask.classList.remove('xf-show'); }
+
+  var submitOpen = document.getElementById('xf-submit-open');
+  var contactOpen = document.getElementById('xf-contact-open');
+  if(submitOpen) submitOpen.addEventListener('click', function(){
+    openModal('我要投稿', '填写简要信息，幸福草编辑团队会尽快与你联系。作品需为本人原创。');
+  });
+  if(contactOpen) contactOpen.addEventListener('click', function(){
+    openModal('合作咨询', '留下你的联系方式与合作意向，品牌团队会在两个工作日内回复。');
+  });
+  var modalClose = document.getElementById('xf-modal-close');
+  var modalCancel = document.getElementById('xf-modal-cancel');
+  if(modalClose) modalClose.addEventListener('click', closeModal);
+  if(modalCancel) modalCancel.addEventListener('click', closeModal);
+  if(mask) mask.addEventListener('click', function(e){ if(e.target === mask) closeModal(); });
+
+  var form = document.getElementById('xf-modal-form');
+  if(form) form.addEventListener('submit', function(e){
+    e.preventDefault();
+    closeModal();
+    form.reset();
+    showToast('提交成功，我们会尽快与你联系');
+  });
+
+  /* 回到顶部 */
+  var backtop = document.getElementById('xf-backtop');
+  window.addEventListener('scroll', function(){
+    if(!backtop) return;
+    if(window.scrollY > 500) backtop.classList.add('xf-show');
+    else backtop.classList.remove('xf-show');
+  });
+  if(backtop) backtop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* 数字滚动 */
+  var counters = document.querySelectorAll('[data-xf-count]');
+  var counted = false;
+  function runCounters(){
+    if(counted) return;
+    counted = true;
+    counters.forEach(function(el){
+      var target = parseInt(el.getAttribute('data-xf-count'), 10);
+      var suffix = el.textContent.indexOf('%') > -1 ? '%' : '';
+      var cur = 0;
+      var step = Math.max(1, Math.floor(target / 40));
+      var timer = setInterval(function(){
+        cur += step;
+        if(cur >= target){ cur = target; clearInterval(timer); }
+        el.textContent = cur.toLocaleString('en-US') + suffix;
+      }, 28);
+    });
+  }
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting) runCounters(); });
+    }, {threshold:0.2});
+    var heroStats = document.querySelector('.xf-hero-stats');
+    if(heroStats) io.observe(heroStats);
+  } else {
+    runCounters();
+  }
+})();
+</script>
+</body>
+                </html>
